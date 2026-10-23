@@ -1,0 +1,9 @@
+backend/vendor/
+
+.env
+.env.*
+!.env.example
+backend/logs/*
+!backend/logs/.gitkeep
+.DS_Store
+.vscode/

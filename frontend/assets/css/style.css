@@ -1,0 +1,324 @@
+:root {
+    --color-primary: #635bdb;
+    --color-primary-dark: #4e46bd;
+    --color-background: #f7f8fc;
+    --color-surface: #ffffff;
+    --color-text: #24243a;
+    --color-muted: #85869a;
+    --color-border: #e9eaf2;
+    --sidebar-width: 250px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--color-background);
+    color: var(--color-text);
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.app-shell {
+    min-height: 100vh;
+}
+
+.sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    width: var(--sidebar-width);
+    padding: 28px 18px;
+    background: var(--color-surface);
+    border-right: 1px solid var(--color-border);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 42px;
+    padding: 0 8px;
+    color: var(--color-text);
+    font-size: 21px;
+    font-weight: 750;
+}
+
+.brand-icon {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    border-radius: 12px;
+    background: var(--color-primary);
+    color: white;
+    font-size: 20px;
+}
+
+.nav-label,
+.personal {
+    color: var(--color-muted);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+}
+
+.nav-label {
+    margin: 0 10px 14px;
+}
+
+.navigation {
+    display: grid;
+    gap: 7px;
+}
+
+.navigation .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 13px;
+    border-radius: 10px;
+    color: #73748a;
+    font-size: 14px;
+    font-weight: 550;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.navigation .nav-link span {
+    width: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.navigation .nav-link:hover {
+    background: #f3f2ff;
+    color: var(--color-primary);
+}
+
+.navigation .nav-link.active {
+    background: #efeeff;
+    color: var(--color-primary-dark);
+    font-weight: 700;
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+}
+
+.sidebar-note {
+    padding: 17px;
+    border-radius: 12px;
+    background: #f7f6ff;
+    color: #77749c;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.logout-button {
+    width: 100%;
+    padding: 10px 13px;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    background: white;
+    color: #77748a;
+    text-align: left;
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    border-color: #d4d0ff;
+    color: var(--color-primary-dark);
+}
+
+.main-content {
+    min-height: 100vh;
+    margin-left: var(--sidebar-width);
+    padding: 35px 42px 20px;
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+.personal {
+    margin-bottom: 8px;
+}
+
+.topbar h1 {
+    margin: 0;
+    font-size: clamp(25px, 3vw, 32px);
+    font-weight: 750;
+    letter-spacing: -0.8px;
+}
+
+.profile-avatar {
+    display: grid;
+    width: 43px;
+    height: 43px;
+    flex-shrink: 0;
+    place-items: center;
+    border-radius: 50%;
+    background: #e8e5ff;
+    color: var(--color-primary-dark);
+    font-weight: 750;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 45px;
+    padding-top: 18px;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-muted);
+    font-size: 12px;
+}
+
+@media (max-width: 767.98px) {
+    :root {
+        --sidebar-width: 0px;
+    }
+
+    .sidebar {
+        position: static;
+        width: 100%;
+        padding: 16px;
+        border-right: 0;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .brand {
+        margin-bottom: 20px;
+    }
+
+    .nav-label,
+    .sidebar-bottom {
+        display: none;
+    }
+
+    .navigation {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .navigation .nav-link {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 25px 18px 18px;
+    }
+
+    .topbar {
+        margin-bottom: 25px;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+:root {
+    --career-primary: #635bdb;
+    --career-primary-light: #efeeff;
+    --career-primary-border: #dedbff;
+    --career-text-dark: #292b38;
+    --career-card-border: #e9e9ef;
+    --career-success: #35a987;
+}
+
+.dashboard-banner {
+    background: linear-gradient(120deg, #635bdb, #9189f5);
+}
+
+.career-level-card {
+    border: 1px solid var(--career-card-border);
+}
+
+.career-level-card.current-level {
+    border: 2px solid var(--career-primary);
+    background-color: #f8f7ff;
+}
+
+.career-level-title {
+    color: var(--career-text-dark);
+}
+
+.current-level .career-level-title,
+.current-level-icon,
+.current-level-label {
+    color: var(--career-primary);
+}
+
+.btn-career-primary {
+    background-color: var(--career-primary);
+    border-color: var(--career-primary);
+    color: white;
+}
+
+.btn-career-primary:hover,
+.btn-career-primary:focus {
+    background-color: #5149bf;
+    border-color: #5149bf;
+    color: white;
+}
+
+.progress-25 {
+    width: 25%;
+}
+
+.progress-40 {
+    width: 40%;
+}
+
+.progress-60 {
+    width: 60%;
+}
+
+.progress-65 {
+    width: 65%;
+}
+
+.progress-70 {
+    width: 70%;
+}
+
+.progress-purple {
+    background-color: var(--career-primary);
+}
+
+.progress-green {
+    background-color: var(--career-success);
+}
+
+.resource-badge {
+    background-color: var(--career-primary-light);
+    color: #4e46bd;
+}
+
+.profile-avatar-large {
+    width: 160px;
+    height: 160px;
+    background-color: var(--career-primary-light);
+    color: var(--career-primary);
+    border: 1px solid var(--career-primary-border);
+    font-size: 48px;
+    font-weight: 600;
+}
+
+.profile-skill {
+    background-color: #f8f9fa;
+}

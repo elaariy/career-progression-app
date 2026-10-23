@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Set career goals, develop skills, and track your professional progress.">
+    <title>CareerPath — Career Progression</title>
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script type="module" src="assets/js/app.js"></script>
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <a href="#dashboard" class="brand">
+                <span class="brand-icon">C</span>
+                <span>CareerPath</span>
+            </a>
+            <p class="nav-label">WORKSPACE</p>
+            
+            <nav class="navigation" aria-label="Main navigation">
+                <a href="#dashboard" class="nav-link active" data-page="dashboard">
+                    <i class="bi bi-grid-1x2 me-2"></i>
+                    Dashboard
+                </a>
+
+                <a href="#career-path" class="nav-link" data-page="career-path">
+                    <i class="bi bi-diagram-3 me-2"></i>
+                    Career Path
+                </a>
+
+                <a href="#goals" class="nav-link" data-page="goals">
+                    <i class="bi bi-bullseye me-2"></i>
+                    Career Goals
+                </a>
+
+                <a href="#skills" class="nav-link" data-page="skills">
+                    <i class="bi bi-lightning-charge me-2"></i>
+                    My Skills
+                </a>
+
+                <a href="#resources" class="nav-link" data-page="resources">
+                    <i class="bi bi-book me-2"></i>
+                    Learning Resources
+                </a>
+
+                <a href="#profile" class="nav-link" data-page="profile">
+                    <i class="bi bi-person-circle me-2"></i>
+                    My Profile
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <p class="sidebar-note">Small steps today.<br>Big progress tomorrow.</p>
+                <button id="logout-button" class="logout-button" type="button">
+                    Log out
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <div>
+                    <p class="personal">YOUR PERSONAL CAREER SPACE</p>
+                    <h1 id="page-title">Dashboard</h1>
+                </div>
+                <a href="#profile" class="profile-avatar" aria-label="Open profile">AD</a>
+            </header>
+
+            <section id="app" aria-live="polite">
+            </section>
+
+            <footer class="footer">
+                <span>CareerPath </span>
+                <span>Built for your next chapter.</span>
+            </footer>
+        </main>
+    </div>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    ></script>
+</body>
+</html>
