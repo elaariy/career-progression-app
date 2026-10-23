@@ -6,7 +6,6 @@ const routes = {
     resources: { title: "Learning Resources", view: "resources.html" },
     profile: { title: "My Profile", view: "profile.html" },
     login: { title: "Log in", view: "login.html" },
-    register: { title: "Create account", view: "register.html" }
 };
 
 export function initRouter({ app, pageTitle, navLinks, onPageLoaded }) {
@@ -17,6 +16,9 @@ export function initRouter({ app, pageTitle, navLinks, onPageLoaded }) {
         const currentPage = routes[requestedPage] ? requestedPage : "dashboard";
         const route = routes[currentPage];
         const currentRenderId = ++renderId;
+
+        const isAuthPage = currentPage === "login";
+        document.body.classList.toggle("auth-page", isAuthPage);
 
         pageTitle.textContent = route.title;
         navLinks.forEach((link) => {
