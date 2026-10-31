@@ -23,7 +23,7 @@ The current forms are demonstrations only
 
 ## Database Plan
 Entities shown in the ERD:
-`roles`, `users`, `career_types`, `positions`, `levels`, `level_positions`, `skills`, `level_skills`, `user_skills`, `resources`, `user_resources`, `projects`, `project_users`, `goals`, `goal_updates`, `progression_requests`, `career_progressions`, and `progression_comments`.
+`roles`, `users`, `career_types`, `positions`, `levels`, `level_positions`, `skills`, `level_skills`, `user_skills`, `resources`, `user_resources`, `projects`, `project_users`, `progression_requests`, `career_progressions`, and `progression_comments`.
 
 The CareerPath database is designed to support employee career development and progression within IT companies.
 
