@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/BaseDao.php';
 
-class Project extends BaseDao
+class ProjectDao extends BaseDao
 {
     public function __construct()
     {
@@ -12,6 +12,6 @@ class Project extends BaseDao
             'start_date',
             'end_date',
             'status'
-        ])
+        ]);
     }
 }
