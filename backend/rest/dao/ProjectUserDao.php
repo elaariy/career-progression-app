@@ -12,4 +12,16 @@ class ProjectUserDao extends BaseDao
             'joined_at'
         ]);
     }
+
+    public function get_by_project_user($project_id, $user_id)
+    {
+        return $this->query_unique(
+            'SELECT * FROM project_users
+             WHERE project_id = :project_id AND user_id = :user_id',
+            [
+                'project_id' => $project_id,
+                'user_id' => $user_id
+            ]
+        );
+    }
 }

@@ -12,4 +12,20 @@ class LevelDao extends BaseDao
             'description'
         ]);
     }
+
+    public function get_by_name($name)
+    {
+        return $this->query_unique(
+            'SELECT * FROM levels WHERE name = :name',
+            ['name' => $name]
+        );
+    }
+
+    public function get_by_level_code($level_code)
+    {
+        return $this->query_unique(
+            'SELECT * FROM levels WHERE level_code = :level_code',
+            ['level_code' => $level_code]
+        );
+    }
 }

@@ -12,4 +12,16 @@ class UserResourceDao extends BaseDao
             'saved_at'
         ]);
     }
+
+    public function get_by_user_resource($user_id, $resource_id)
+    {
+        return $this->query_unique(
+            'SELECT * FROM user_resources
+             WHERE user_id = :user_id AND resource_id = :resource_id',
+            [
+                'user_id' => $user_id,
+                'resource_id' => $resource_id
+            ]
+        );
+    }
 }
