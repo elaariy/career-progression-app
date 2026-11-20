@@ -6,6 +6,6 @@ class RoleDao extends BaseDao
 {
     public function __construct()
     {
-        parent::__construct('roles', ['name']);
+        parent::__construct('roles', ['name', 'description']);
     }
 }
