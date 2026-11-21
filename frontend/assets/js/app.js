@@ -273,6 +273,71 @@ function getSkillCards() {
     `).join("");
 }
 
+function LearningVideoSearch() {
+    const form = document.getElementById("learning-video-form");
+    const status = document.getElementById("learning-video-status");
+    const results = document.getElementById("learning-video-results");
+    const button = form.querySelector("button");
+
+    form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const query = form.elements.query.value.trim();
+        results.replaceChildren();
+
+        if (query.length < 2) {
+            status.textContent = "Enter at least two characters.";
+            return;
+        }
+
+        const url = new URL(
+            "../../../backend/learning-videos",
+            import.meta.url
+        );
+        url.searchParams.set("q", query);
+
+        button.disabled = true;
+        status.textContent = "Searching for tutorials…";
+
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+
+            if (!response.ok) {
+                status.textContent =
+                    data.error || "Video search is temporarily unavailable.";
+                return;
+            }
+
+            for (const video of data) {
+                const item = document.createElement("li");
+                item.className = "list-group-item";
+
+                const link = document.createElement("a");
+                link.href = video.url;
+                link.textContent = video.title;
+                link.target = "_blank";
+                link.rel = "noopener noreferrer";
+
+                const channel = document.createElement("small");
+                channel.className = "d-block text-secondary";
+                channel.textContent = video.channel;
+
+                item.append(link, channel);
+                results.append(item);
+            }
+
+            status.textContent = data.length ? "" : "No tutorials found.";
+        } catch {
+            status.textContent =
+                "Video search is temporarily unavailable. Please try again later.";
+        } finally {
+            button.disabled = false;
+        }
+    });
+}
+
+
 function getResourceCards() {
     return resources.map((resource) => `
         <div class="col-12 col-md-6 col-xl-4">
@@ -348,6 +413,7 @@ function initializePage(currentPage) {
 
     if (currentPage === "resources") {
         document.getElementById("resources-list").innerHTML = getResourceCards();
+        LearningVideoSearch();
     }
 
     if (currentPage === "profile") {
