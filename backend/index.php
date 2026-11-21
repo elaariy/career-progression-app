@@ -103,4 +103,8 @@ require_once __DIR__ . '/rest/services/ProgressionCommentService.php';
 Flight::register('progression_comment_service', 'ProgressionCommentService');
 require_once __DIR__ . '/rest/routes/ProgressionCommentRoute.php';
 
+require_once __DIR__ . '/rest/services/LearningVideoService.php';
+Flight::register('learning_video_service', 'LearningVideoService');
+require_once __DIR__ . '/rest/routes/LearningVideoRoute.php';
+
 Flight::start();
