@@ -1,0 +1,72 @@
+<?php
+
+use OpenApi\Attributes as OA;
+
+class SkillsPaths
+{
+    #[OA\Get(
+        path: '/skills',
+        tags: ['skills'],
+        summary: 'List skills',
+        responses: [
+            new OA\Response(response: 200, description: 'List of skills', content: new OA\JsonContent(type: 'array', items: new OA\Items(ref: '#/components/schemas/Skill'))),
+            new OA\Response(response: 500, description: 'Unexpected server error', content: new OA\JsonContent(ref: '#/components/schemas/Error'))
+        ]
+    )]
+    public function getSkills() {}
+
+    #[OA\Get(
+        path: '/skills/{id}',
+        tags: ['skills'],
+        summary: 'Get one skill',
+        parameters: [new OA\Parameter(name: 'id', in: 'path', required: true, example: 1, schema: new OA\Schema(type: 'integer', minimum: 1))],
+        responses: [
+            new OA\Response(response: 200, description: 'The requested record', content: new OA\JsonContent(ref: '#/components/schemas/Skill')),
+            new OA\Response(response: 404, description: 'Record not found', content: new OA\JsonContent(ref: '#/components/schemas/Error')),
+            new OA\Response(response: 500, description: 'Unexpected server error', content: new OA\JsonContent(ref: '#/components/schemas/Error'))
+        ]
+    )]
+    public function getSkillsById() {}
+
+    #[OA\Post(
+        path: '/skills',
+        tags: ['skills'],
+        summary: 'Create a Skill',
+        requestBody: new OA\RequestBody(required: true, content: new OA\JsonContent(ref: '#/components/schemas/SkillInput')),
+        responses: [
+            new OA\Response(response: 201, description: 'Created record', content: new OA\JsonContent(ref: '#/components/schemas/Skill')),
+            new OA\Response(response: 400, description: 'Invalid input or constraint violation', content: new OA\JsonContent(ref: '#/components/schemas/Error')),
+            new OA\Response(response: 500, description: 'Unexpected server error', content: new OA\JsonContent(ref: '#/components/schemas/Error'))
+        ]
+    )]
+    public function postSkills() {}
+
+    #[OA\Put(
+        path: '/skills/{id}',
+        tags: ['skills'],
+        summary: 'Update a Skill',
+        parameters: [new OA\Parameter(name: 'id', in: 'path', required: true, example: 1, schema: new OA\Schema(type: 'integer', minimum: 1))],
+        requestBody: new OA\RequestBody(required: true, content: new OA\JsonContent(ref: '#/components/schemas/SkillInput')),
+        responses: [
+            new OA\Response(response: 200, description: 'Updated record', content: new OA\JsonContent(ref: '#/components/schemas/Skill')),
+            new OA\Response(response: 400, description: 'Invalid input or constraint violation', content: new OA\JsonContent(ref: '#/components/schemas/Error')),
+            new OA\Response(response: 404, description: 'Record not found', content: new OA\JsonContent(ref: '#/components/schemas/Error')),
+            new OA\Response(response: 500, description: 'Unexpected server error', content: new OA\JsonContent(ref: '#/components/schemas/Error'))
+        ]
+    )]
+    public function putSkillsById() {}
+
+    #[OA\Delete(
+        path: '/skills/{id}',
+        tags: ['skills'],
+        summary: 'Delete a Skill',
+        parameters: [new OA\Parameter(name: 'id', in: 'path', required: true, example: 1, schema: new OA\Schema(type: 'integer', minimum: 1))],
+        responses: [
+            new OA\Response(response: 200, description: 'Deleted record', content: new OA\JsonContent(ref: '#/components/schemas/Message')),
+            new OA\Response(response: 400, description: 'Constraint prevents deletion', content: new OA\JsonContent(ref: '#/components/schemas/Error')),
+            new OA\Response(response: 404, description: 'Record not found', content: new OA\JsonContent(ref: '#/components/schemas/Error')),
+            new OA\Response(response: 500, description: 'Unexpected server error', content: new OA\JsonContent(ref: '#/components/schemas/Error'))
+        ]
+    )]
+    public function deleteSkillsById() {}
+}

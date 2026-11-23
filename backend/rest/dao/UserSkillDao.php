@@ -14,4 +14,16 @@ class UserSkillDao extends BaseDao
             'last_updated_at'
         ]);
     }
+
+    public function get_by_user_skill($user_id, $skill_id)
+    {
+        return $this->query_unique(
+            'SELECT * FROM user_skills
+             WHERE user_id = :user_id AND skill_id = :skill_id',
+            [
+                'user_id' => $user_id,
+                'skill_id' => $skill_id
+            ]
+        );
+    }
 }

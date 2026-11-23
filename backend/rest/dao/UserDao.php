@@ -18,4 +18,22 @@ class UserDao extends BaseDao
             'is_active'
         ]);
     }
+
+    public function count_by_career_type($id)
+    {
+    $result = $this->query_unique(
+        'SELECT COUNT(*) AS total FROM users WHERE career_type_id = :id',
+        ['id' => $id]
+    );
+
+    return (int) $result['total'];
+    }
+
+    public function get_by_email($email)
+    {
+        return $this->query_unique(
+            'SELECT * FROM users WHERE email = :email',
+            ['email' => $email]
+        );
+    }
 }

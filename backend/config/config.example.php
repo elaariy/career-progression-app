@@ -22,5 +22,9 @@ class Config
         $value = getenv($key);
         return ($value !== false && trim($value) !== '') ? $value : $default;
     }
+    public static function YOUTUBE_API_KEY()
+    {
+        return self::get_env('YOUTUBE_API_KEY', '');
+    }
 
 }

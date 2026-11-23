@@ -4,7 +4,25 @@
 </div>
 
 <div class="alert alert-light border rounded-3 mb-4">
-    <strong>Planned in other Milestones:</strong>
-    This section will later display learning resources from an external API as required by the project.
+    <section class="border rounded-4 p-4 mb-4">
+    <h3 class="h5">Video tutorials</h3>
+
+    <form id="learning-video-form">
+        <label for="learning-video-query" class="form-label">
+            Skill or topic
+        </label>
+        <div class="input-group">
+            <input id="learning-video-query" class="form-control"
+                   name="query" placeholder="e.g. Git"
+                   minlength="2" maxlength="80" required>
+            <button class="btn btn-primary" type="submit">
+                Search YouTube
+            </button>
+        </div>
+    </form>
+
+    <p id="learning-video-status" class="mt-2" role="status"></p>
+    <ul id="learning-video-results" class="list-group"></ul>
+</section>
 </div>
 <div class="row g-3" id="resources-list"></div>
